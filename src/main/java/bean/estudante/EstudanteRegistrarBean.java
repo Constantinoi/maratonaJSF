@@ -1,7 +1,10 @@
 package bean.estudante;
 
+import model.Estudante;
+
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.*;
 
 /**
  * Created by const on 12/07/2021.
@@ -10,49 +13,90 @@ import java.io.Serializable;
 @Named
 public class EstudanteRegistrarBean implements Serializable {
 
-    private String nome = "Constantino";
-    private String sobrenome = "Barreto";
-    private double nota1;
-    private double nota2;
-    private double nota3 = 10;
+    private Estudante estudante = new Estudante();
 
-    public String getNome() {
-        return nome;
+    private String[] nomesArray = {"DevDojo", "Constantino", "Maratona"};
+
+    private List<String> nomesList = Arrays.asList("Teste2", "Constantino", "Maratona");
+
+    private Set<String> nomesSet = new HashSet<>(Arrays.asList("Goku", "Naruto", "Luffy", "Boruto"));
+
+    private Map<String, String> nomeMap = new HashMap<>();
+
+    {
+        nomeMap.put("Goku", "Sayjin");
+        nomeMap.put("Luffy", "Pirata");
+        nomeMap.put("Naruto", "Ninja");
+
+        for (String nome : nomesSet) {
+            System.out.println(nome);
+        }
+
+        for (Map.Entry<String, String> entry : nomeMap.entrySet()) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void executar() {
+        System.out.println("TESTE PARA TESTAR O JSF");
+        System.out.println("OLHA AI FUNCIONANDO");
+        System.out.println("LEGAL ISSO AQUI");
+
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public String irParaIndex2() {
+        return "index2?faces-redirect=true";
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void executar(String param) {
+        System.out.println("TESTE PARA TESTAR O JSF " + param);
+        System.out.println("OLHA AI FUNCIONANDO");
+        System.out.println("LEGAL ISSO AQUI");
     }
 
-    public double getNota1() {
-        return nota1;
+    public String executarRetorno(String param) {
+        return "Quem e o lindao ? " + param;
     }
 
-    public void setNota1(double nota1) {
-        this.nota1 = nota1;
+
+    public Estudante getEstudante() {
+        return estudante;
     }
 
-    public double getNota2() {
-        return nota2;
+    public void setEstudante(Estudante estudante) {
+        this.estudante = estudante;
     }
 
-    public void setNota2(double nota2) {
-        this.nota2 = nota2;
+    public String[] getNomesArray() {
+        return nomesArray;
     }
 
-    public double getNota3() {
-        return nota3;
+    public void setNomesArray(String[] nomesArray) {
+        this.nomesArray = nomesArray;
     }
 
-    public void setNota3(double nota3) {
-        this.nota3 = nota3;
+    public List<String> getNomesList() {
+        return nomesList;
+    }
+
+    public void setNomesList(List<String> nomesList) {
+        this.nomesList = nomesList;
+    }
+
+    public Set<String> getNomesSet() {
+        return nomesSet;
+    }
+
+    public void setNomesSet(Set<String> nomesSet) {
+        this.nomesSet = nomesSet;
+    }
+
+    public Map<String, String> getNomeMap() {
+        return nomeMap;
+    }
+
+    public void setNomeMap(Map<String, String> nomeMap) {
+        this.nomeMap = nomeMap;
     }
 }
