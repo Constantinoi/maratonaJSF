@@ -12,49 +12,75 @@
         <br/>
         <h:outputLabel value="#{estudanteRegistrarBean.estudante.nome}"/> <br/>
         <h:outputLabel value="#{estudanteRegistrarBean.estudante.sobrenome}"/> <br/>
-        <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 eq  estudanteRegistrarBean.estudante.nota2}"/><br/>
+        <h:outputLabel
+                value="#{estudanteRegistrarBean.estudante.nota1 eq  estudanteRegistrarBean.estudante.nota2}"/><br/>
 
-        <h:outputText value="====ENUM====" /> <br/>
+        <h:outputText value="====ENUM===="/> <br/>
         <h:outputLabel value="#{estudanteRegistrarBean.estudante.turno}"/> <br/>
         <h:outputLabel value="#{estudanteRegistrarBean.estudante.turno.equals(Turno.MATUTINO)}"/> <br/>
         <p:panel>
-            <h:outputText value="====ARRAYS====" /> <br/>
-            <h:outputLabel value="#{estudanteRegistrarBean.nomesArray[0]} #{estudanteRegistrarBean.nomesArray[1]} #{estudanteRegistrarBean.nomesArray[2]}"/> <br/>
+            <h:outputText value="====ARRAYS===="/> <br/>
+            <h:outputLabel
+                    value="#{estudanteRegistrarBean.nomesArray[0]} #{estudanteRegistrarBean.nomesArray[1]} #{estudanteRegistrarBean.nomesArray[2]}"/>
+            <br/>
             <ui:repeat value="#{estudanteRegistrarBean.nomesArray}" var="nome">
                 <p:outputLabel value="#{nome}"/><br/>
             </ui:repeat>
         </p:panel>
 
         <p:panel>
-            <h:outputText value="=====LIST====" /> <br/>
-            <h:outputLabel value="#{estudanteRegistrarBean.nomesList.get(0)} #{estudanteRegistrarBean.nomesList.get(1)} #{estudanteRegistrarBean.nomesList.get(2)}"/> <br/>
+            <h:outputText value="=====LIST===="/> <br/>
+            <h:outputLabel
+                    value="#{estudanteRegistrarBean.nomesList.get(0)} #{estudanteRegistrarBean.nomesList.get(1)} #{estudanteRegistrarBean.nomesList.get(2)}"/>
+            <br/>
             <ui:repeat value="#{estudanteRegistrarBean.nomesList}" var="nome">
                 <p:outputLabel value="#{nome}"/><br/>
             </ui:repeat>
         </p:panel>
         <p:panel>
-        <h:outputText value="=====SET====" /> <br/>
+            <h:outputText value="=====SET===="/> <br/>
             <ui:repeat value="#{estudanteRegistrarBean.nomesSet.toArray()}" var="nome">
                 <p:outputLabel value="#{nome}"/><br/>
             </ui:repeat>
         </p:panel><p:panel>
-        <h:outputText value="=====MAP====" /> <br/>
-        <h:outputText value="#{estudanteRegistrarBean.nomeMap.get('Goku')}" /> <br/>
-        <h:outputText value="#{estudanteRegistrarBean.nomeMap}" /> <br/>
+        <h:outputText value="=====MAP===="/> <br/>
+        <h:outputText value="#{estudanteRegistrarBean.nomeMap.get('Goku')}"/> <br/>
+        <h:outputText value="#{estudanteRegistrarBean.nomeMap}"/> <br/>
         <ui:repeat value="#{estudanteRegistrarBean.nomeMap.entrySet().toArray()}" var="nome">
             <p:outputLabel value="#{nome.key} - #{nome.value}"/><br/>
         </ui:repeat>
-        </p:panel>
+    </p:panel>
 
         #{estudanteRegistrarBean.executar()}
         #{estudanteRegistrarBean.executar('xuxu')}
         #{estudanteRegistrarBean.executarRetorno(estudanteRegistrarBean.estudante.nome)}
 
         <h:form>
-            <p:commandButton value="PROXIMA PAGINA" action="#{estudanteRegistrarBean.irParaIndex2()}"/>
-
+            <p:commandButton value="PROXIMA PAGINA" action="#{estudanteRegistrarBean.irParaIndex2()}"/><br/>
         </h:form>
+        <br/>
+        <br/>
+        <h:outputText value="=====CSS COM EXPRESSION LANGUAGE===="/> <br/>
+        <ui:repeat value="#{estudanteRegistrarBean.nomesList}" var="nome" varStatus="status">
 
+            <p:outputLabel value="#{nome}" style="color:  #{status.index mod 2 == 0 ? 'red' : 'green'} "/><br/>
+        </ui:repeat>
     </f:view>
+
+    <h:outputText value="=====JS COM EXPRESSION LANGUAGE===="/> <br/>
+    <script type="text/javascript">
+        function fazMagica(magica){
+            alert(magica);
+        }
+        function alertaNome(nome){
+            alert(nome);
+        }
+    </script>
+
+    <h:form>
+        <h:commandButton value="Faz Magica" onclick="fazMagica('Hadouken')" />
+        <h:commandButton value="alerta Nome" onclick="alertaNome('#{estudanteRegistrarBean.estudante.nome}')" />
+    </h:form>
+
 </h:body>
 </html>

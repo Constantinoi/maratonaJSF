@@ -2,6 +2,7 @@ package bean.estudante;
 
 import model.Estudante;
 
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.*;
@@ -11,6 +12,7 @@ import java.util.*;
  */
 
 @Named
+@ViewScoped
 public class EstudanteRegistrarBean implements Serializable {
 
     private Estudante estudante = new Estudante();
@@ -22,6 +24,10 @@ public class EstudanteRegistrarBean implements Serializable {
     private Set<String> nomesSet = new HashSet<>(Arrays.asList("Goku", "Naruto", "Luffy", "Boruto"));
 
     private Map<String, String> nomeMap = new HashMap<>();
+
+    private boolean mostrarNotas;
+
+    private boolean mostrarLink;
 
     {
         nomeMap.put("Goku", "Sayjin");
@@ -57,6 +63,22 @@ public class EstudanteRegistrarBean implements Serializable {
 
     public String executarRetorno(String param) {
         return "Quem e o lindao ? " + param;
+    }
+
+    public void exibirNotas() {
+        mostrarNotas = true;
+    }
+
+    public void esconderNotas() {
+        mostrarNotas = false;
+    }
+
+    public void esconderLink() {
+        mostrarLink = false;
+    }
+
+    public void exibirLink() {
+        mostrarLink = true;
     }
 
 
@@ -98,5 +120,21 @@ public class EstudanteRegistrarBean implements Serializable {
 
     public void setNomeMap(Map<String, String> nomeMap) {
         this.nomeMap = nomeMap;
+    }
+
+    public boolean isMostrarNotas() {
+        return mostrarNotas;
+    }
+
+    public void setMostrarNotas(boolean mostrarNotas) {
+        this.mostrarNotas = mostrarNotas;
+    }
+
+    public boolean isMostrarLink() {
+        return mostrarLink;
+    }
+
+    public void setMostrarLink(boolean mostrarLink) {
+        this.mostrarLink = mostrarLink;
     }
 }
