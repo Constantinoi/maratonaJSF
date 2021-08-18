@@ -15,4 +15,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <location>/error.xhtml</location>
+    </error-page>
 </web-app>
