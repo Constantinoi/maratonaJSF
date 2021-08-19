@@ -9,11 +9,12 @@
 
 </h:head>
 <h:body>
+    <h:messages />
     <h:form>
         <h2>Primeira pagina de registro</h2>
         <h:panelGrid columns="2">
-            <h:outputLabel value="Nome"/>
-            <h:inputText value="#{testeFlowBean.nome}"/>
+            <h:outputLabel value="Nome *"/>
+            <h:inputText value="#{testeFlowBean.nome}" required="true" requiredMessage="Nome Obrigatorio"/>
             <h:outputLabel value="Sobrenome"/>
             <h:inputText value="#{testeFlowBean.sobrenome}"/>
             <h:commandButton value="Next" action="registration2?faces-redirect=true"/>

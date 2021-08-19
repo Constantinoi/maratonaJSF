@@ -4,11 +4,13 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <flow-definition id="registration">
+
         <flow-return id="exitToInicio">
             <from-outcome>/inicioflow.xhtml</from-outcome>
         </flow-return>
         <flow-return id="exitToIndex">
             <from-outcome>/index.xhtml</from-outcome>
         </flow-return>
+        <finalizer>#{testeFlowBean.salvar()}</finalizer>
     </flow-definition>
 </faces-config>
