@@ -10,13 +10,11 @@
 </h:head>
 <h:body>
     <h:form>
-        <h2>Segunda pagina de registro</h2>
+        <h2>Validando dados do usuario</h2>
         <h:panelGrid columns="2">
-            <h:outputLabel value="Endereco"/>
-            <h:inputText value="#{testeFlowBean.endereco}"/>
-            <h:commandButton value="Back" action="registration?faces-redirect=true"/>
-            <!--<h:commandButton value="Next" action="registration3?faces-redirect=true"/>-->
-            <h:commandButton value="Validar Pendencias" action="callPendencies"/>
+            <h:outputText value="#{testeFlowNested.userName}"/>
+            <h:outputText value="#{testeFlowNested.userSurname}"/>
+            <h:commandButton value="Validar Usuario" action="#{testeFlowNested.validarUser}"/>
         </h:panelGrid>
     </h:form>
 </h:body>
