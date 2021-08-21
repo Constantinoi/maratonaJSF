@@ -1,12 +1,7 @@
-package bean.view;
-
-import bean.dependent.TesteDependentBean;
+package bean.dependent;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
+import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,26 +10,19 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Created by const on 24/07/2021.
+ * Created by const on 20/08/2021.
  */
 @Named
-@ViewScoped
-public class TesteViewBean implements Serializable {
+@Dependent
+public class TesteDependentBean implements Serializable {
 
     private List<String> personagens;
     private List<String> personagemSelecionado = new ArrayList<>();
 
-    private final TesteDependentBean dependentBean;
-
-    @Inject
-    public TesteViewBean(TesteDependentBean dependentBean) {
-        this.dependentBean = dependentBean;
-    }
-
     @PostConstruct
     public void init() {
-        System.out.println("Entrou no PostConstruct do ViewScoped");
-        personagens = Arrays.asList("Naruto", "Susuke", "Sakura");
+        System.out.println("Entrou no PostConstruct do DependentBean");
+        personagens = Arrays.asList("Pikachu", "Pichu", "Raichu");
     }
 
 
@@ -42,7 +30,6 @@ public class TesteViewBean implements Serializable {
         int index = ThreadLocalRandom.current().nextInt(3);
         String personagem = personagens.get(index);
         personagemSelecionado.add(personagem);
-        dependentBean.getPersonagemSelecionado().add(personagem);
     }
 
     public List<String> getPersonagens() {
@@ -59,9 +46,5 @@ public class TesteViewBean implements Serializable {
 
     public void setPersonagemSelecionado(List<String> personagemSelecionado) {
         this.personagemSelecionado = personagemSelecionado;
-    }
-
-    public TesteDependentBean getDependentBean() {
-        return dependentBean;
     }
 }
