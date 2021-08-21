@@ -9,10 +9,13 @@
 
 </h:head>
 <h:body>
-    <h2>Ponto de Entrada do FlowScoped</h2>
     <h:form>
-        <h:commandButton value="Entrar no flow" action="registration"/>
-        <h:commandButton value="Entrar Newflow " action="newregistration"/>
+        <h2>Validando dados do usuario</h2>
+        <h:panelGrid columns="2">
+            <h:outputText value="#{testeFlowBuilderNested.userName}"/>
+            <h:outputText value="#{testeFlowBuilderNested.userSurname}"/>
+            <h:commandButton value="Validar Usuario" action="#{testeFlowNested.validarUser}"/>
+        </h:panelGrid>
     </h:form>
 </h:body>
 </html>
