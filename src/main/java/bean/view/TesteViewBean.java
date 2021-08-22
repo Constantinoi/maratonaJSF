@@ -1,10 +1,9 @@
 package bean.view;
 
 import bean.dependent.TesteDependentBean;
+import bean.session.TesteSessionBean;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,12 +22,13 @@ public class TesteViewBean implements Serializable {
 
     private List<String> personagens;
     private List<String> personagemSelecionado = new ArrayList<>();
-
     private final TesteDependentBean dependentBean;
+    private final TesteSessionBean sessionBean;
 
     @Inject
-    public TesteViewBean(TesteDependentBean dependentBean) {
+    public TesteViewBean(TesteDependentBean dependentBean, TesteSessionBean sessionBean) {
         this.dependentBean = dependentBean;
+        this.sessionBean = sessionBean;
     }
 
     @PostConstruct
@@ -63,5 +63,9 @@ public class TesteViewBean implements Serializable {
 
     public TesteDependentBean getDependentBean() {
         return dependentBean;
+    }
+
+    public TesteSessionBean getSessionBean() {
+        return sessionBean;
     }
 }

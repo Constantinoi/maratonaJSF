@@ -1,5 +1,7 @@
 package bean.session;
 
+import model.Estudante;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -20,11 +22,16 @@ public class TesteSessionBean implements Serializable {
 
     private List<String> personagens ;
     private List<String> personagemSelecionado = new ArrayList<>();
+    private Estudante estudante;
 
     @PostConstruct
     public void init(){
         System.out.println("Entrou no PostConstruct do SessionScoped");
         personagens = Arrays.asList("Gon", "Kurapika", "Kilua");
+        logar();
+    }
+    public void logar(){
+        estudante = new Estudante();
     }
 
     public String logout(){
@@ -55,4 +62,11 @@ public class TesteSessionBean implements Serializable {
         this.personagemSelecionado = personagemSelecionado;
     }
 
+    public Estudante getEstudante() {
+        return estudante;
+    }
+
+    public void setEstudante(Estudante estudante) {
+        this.estudante = estudante;
+    }
 }
