@@ -51,5 +51,14 @@
             </h:link>
         </h:panelGrid>
     </h:form>
+    <h2>4ª Forma de passar parametros</h2>
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:link value="vai para comunicao3" outcome="comunicacao3?face-redirect=true">
+                <f:param name="nome" value="Ivanilde"/>
+                <f:param name="sobrenome" value="Santos"/>
+            </h:link>
+        </h:panelGrid>
+    </h:form>
 </h:body>
 </html>
