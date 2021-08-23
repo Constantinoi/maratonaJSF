@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="#{facesContext.externalContext.getInitParameter('images.location')}"/>
+            <h:commandButton value="Imprimir" actionListener="#{comunicacaoTeste1Bean.imprimirAtributos()}"/>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+    <h2>1ª Forma de passar parametros</h2>
+    <h:form>
+        <h:panelGrid columns="1">
+
+            <h:outputLabel value="Nome: "/>
+            <h:inputText value="#{comunicacaoTeste1Bean.nome}"/>
+            <h:outputLabel value="Sobrenome :"/>
+            <h:inputText value="#{comunicacaoTeste1Bean.sobrenome}"/>
+            <h:commandButton value="Save" action="#{comunicacaoTeste1Bean.save()}"/>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+    <h2>2ª Forma de passar parametros</h2>
+    <h:form>
+        <h:panelGrid columns="1">
+            <!--<h:outputLabel value="Nome: "/>-->
+            <!--<h:inputText value="#{comunicacaoTeste1Bean.nome}"/>-->
+            <!--<h:outputLabel value="Sobrenome :"/>-->
+            <!--<h:inputText value="#{comunicacaoTeste1Bean.sobrenome}"/>-->
+            <h:button value="VAI COMUNICACAO 2" outcome="comunicacao2?face-redirect=true">
+                <f:param name="nome" value="Constantino"/>
+                <f:param name="sobrenome" value="Barreto"/>
+            </h:button>
+        </h:panelGrid>
+    </h:form>
+    <br/>
+    <h2>3ª Forma de passar parametros</h2>
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:link value="vai para comunicao2" outcome="comunicacao2?face-redirect=true">
+                <f:param name="nome" value="Constantino"/>
+                <f:param name="sobrenome" value="Barreto"/>
+            </h:link>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
