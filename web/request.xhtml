@@ -12,6 +12,9 @@
     <h:form>
         <h:outputText value="#{testeApplication.categoriaList}"/><br/>
         <h:outputText value="#{testRequestBean.personagemSelecionado}"/><br/>
+        <h:outputText value="#{loginBean.estudante.nome}"/><br/>
+
+
         <h:commandButton actionListener="#{testRequestBean.selecionarPersonagem()}" value="Selecionar Personagem"/>
         <h:commandButton actionListener="#{testRequestBean.selecionarPersonagem()}" value="Selecionar Personagem Forward" action="index3"/>
         <h:commandButton actionListener="#{testRequestBean.selecionarPersonagem()}" value="Selecionar Personagem Redirect" action="index3?faces-redirect=true"/><br/>
