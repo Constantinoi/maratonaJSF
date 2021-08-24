@@ -3,6 +3,7 @@ package bean.comunicacao;
 import org.omnifaces.cdi.Param;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,10 +20,12 @@ public class ComunicacaoTeste3Bean implements Serializable {
     private String sobrenome;
 
     public void init() {
-        System.out.println("Comunicacao Pagina 3");
+//        if(!FacesContext.getCurrentInstance().isPostback()) {
+            System.out.println("Comunicacao Pagina 3");
 
-        System.out.println(nome);
-        System.out.println(sobrenome);
+            System.out.println(nome);
+            System.out.println(sobrenome);
+//        }
     }
 
     public String getNome() {

@@ -4,6 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 
@@ -11,17 +13,22 @@
 <f:metadata>
     <f:viewParam name="nome" value="#{comunicacaoTeste3Bean.nome}"/>
     <f:viewParam name="sobrenome" value="#{comunicacaoTeste3Bean.sobrenome}"/>
-    <f:event type="preRenderView" listener="#{comunicacaoTeste3Bean.init}"/>
+    <!--<f:event type="preRenderView" listener="#{comunicacaoTeste3Bean.init}"/>-->
+    <f:viewAction action="#{comunicacaoTeste3Bean.init}"/>
 </f:metadata>
 <h:body>
-    <h:form>
+    <o:form includeRequestParams="true">
         <h:panelGrid columns="1">
-            <h:outputLabel value="Nome: "/>
-            <h:inputText value="#{comunicacaoTeste3Bean.nome}"/>
+            <p:messages autoUpdate="true"/>
+            <h:outputLabel value="Nome: *"/>
+            <h:inputText value="#{comunicacaoTeste3Bean.nome}" required="true" requiredMessage="Nome Obrigatorio">
+                <f:ajax event="blur"/>
+            </h:inputText>
             <h:outputLabel value="Sobrenome :"/>
             <h:inputText value="#{comunicacaoTeste3Bean.sobrenome}"/>
-            <h:commandButton value="Resultado" action="resultado?faces-redirect=true&amp;includeViewParams=true"/> <!-- VOCE VAI FAZER UM POST ,MAIS VAI INCLUIR NA URL OS PARAMENTROS  QUE VOCE TEM ATUALMENTE-->
+            <h:commandButton value="Resultado"
+                             action="resultado?faces-redirect=true&amp;includeViewParams=true"/> <!-- VOCE VAI FAZER UM POST ,MAIS VAI INCLUIR NA URL OS PARAMENTROS  QUE VOCE TEM ATUALMENTE-->
         </h:panelGrid>
-    </h:form>
+    </o:form>
 </h:body>
 </html>
