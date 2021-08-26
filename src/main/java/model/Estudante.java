@@ -2,6 +2,7 @@ package model;
 
 import model.enums.Turno;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,9 +27,9 @@ public class Estudante {
     }
 
     public static List<Estudante> estudanteList() {
-        return Arrays.asList(new Estudante("Ikki", "Fenix", 10),
+        return new ArrayList<>(Arrays.asList(new Estudante("Ikki", "Fenix", 10),
                 new Estudante("Siriu", "Dragao", 9),
-                new Estudante("Seya", "Pegasus", 8));
+                new Estudante("Seya", "Pegasus", 8)));
     }
 
     public String getNome() {
