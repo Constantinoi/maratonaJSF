@@ -2,6 +2,9 @@ package model;
 
 import model.enums.Turno;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by const on 13/07/2021.
  */
@@ -12,6 +15,21 @@ public class Estudante {
     private double nota2;
     private double nota3 = 10;
     private Turno turno = Turno.MATUTINO;
+
+    public Estudante() {
+    }
+
+    public Estudante(String nome, String sobrenome, double nota1) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nota1 = nota1;
+    }
+
+    public static List<Estudante> estudanteList() {
+        return Arrays.asList(new Estudante("Ikki", "Fenix", 10),
+                new Estudante("Siriu", "Dragao", 9),
+                new Estudante("Seya", "Pegasus", 8));
+    }
 
     public String getNome() {
         return nome;
@@ -60,4 +78,5 @@ public class Estudante {
     public void setTurno(Turno turno) {
         this.turno = turno;
     }
+
 }
